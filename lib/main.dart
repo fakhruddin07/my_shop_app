@@ -14,8 +14,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => ProductsProvider(),
+    return ChangeNotifierProvider.value(
+      // create: (context) => ProductsProvider(),
+      value: ProductsProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
               .copyWith(secondary: Colors.deepOrange),
           fontFamily: "Lato",
         ),
-        home: ProductOverviewScreen(),
+        home: const ProductOverviewScreen(),
         routes: {
           ProductDetailScreen.routeName: (context) =>
               const ProductDetailScreen(),
