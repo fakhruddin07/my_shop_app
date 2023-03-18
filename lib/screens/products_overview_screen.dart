@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_shop/screens/cart_screen.dart';
 import 'package:my_shop/widgets/appbar_badge.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +30,9 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
               child: child!,
             ),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(CartScreen.routeName);
+              },
               icon: const Icon(Icons.shopping_cart),
             ),
           ),
