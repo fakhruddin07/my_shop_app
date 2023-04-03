@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_shop/providers/products_provider.dart';
 import 'package:my_shop/widgets/app_drawer.dart';
-import 'package:my_shop/widgets/user_product_item.dart';
+import 'package:my_shop/widgets/user_products_item.dart';
 import 'package:provider/provider.dart';
 
-class UserProductScreen extends StatelessWidget {
+class UserProductsScreen extends StatelessWidget {
   static const routeName = '/user-products';
-  const UserProductScreen({super.key});
+  const UserProductsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
