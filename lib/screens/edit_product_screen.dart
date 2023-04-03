@@ -9,7 +9,15 @@ class EditProductScreen extends StatefulWidget {
 }
 
 class _EditProductScreenState extends State<EditProductScreen> {
-  final _priceFocus = FocusNode();
+  final _priceFocusNode = FocusNode();
+  final _descriptionFocusNode = FocusNode();
+
+  @override
+  void dispose() {
+    _priceFocusNode.dispose();
+    _descriptionFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +35,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
               ),
               textInputAction: TextInputAction.next,
               onFieldSubmitted: (value) {
-                FocusScope.of(context).requestFocus(_priceFocus);
+                FocusScope.of(context).requestFocus(_priceFocusNode);
               },
             ),
             TextFormField(
@@ -36,7 +44,18 @@ class _EditProductScreenState extends State<EditProductScreen> {
               ),
               textInputAction: TextInputAction.next,
               keyboardType: TextInputType.number,
-              focusNode: _priceFocus,
+              focusNode: _priceFocusNode,
+              onFieldSubmitted: (value) {
+                FocusScope.of(context).requestFocus(_descriptionFocusNode);
+              },
+            ),
+            TextFormField(
+              decoration: const InputDecoration(
+                label: Text("Descriotion"),
+              ),
+              keyboardType: TextInputType.multiline,
+              maxLines: 5,
+              focusNode: _descriptionFocusNode,
             ),
           ]),
         ),
